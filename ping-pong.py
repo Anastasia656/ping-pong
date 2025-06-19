@@ -5,15 +5,19 @@ Game = True
 clock = pygame.time.Clock()
 window = pygame.display.set_mode((W,H))
 ball_img = pygame.Surface((30,30))
+player_img = pygame.Surface((30,60))
 class Base():
     def __init__(self,x,y,img,speed):
         self.hitbox = img.get_rect(center = (x,y))
         self.img = img
-        self.speed_x = 0
-        self.speed_y = 0
+        
         self.speed = speed
 
 class Ball(Base):
+    def __init__(self, x, y, img, speed):
+        super().__init__(x, y, img, speed)
+        self.speed_x = speed
+        self.speed_y = speed
     def move(self):
         self.hitbox.x += self.speed_x
         self.hitbox.y += self.speed_y
@@ -26,8 +30,8 @@ class Ball(Base):
         elif self.hitbox.top < 0:
             self.speed_y = self.speed 
 ball = Ball(W//2,H//2,ball_img,15)
-ball.speed_x = ball.speed
-ball.speed_y = ball.speed
+
+
 
 while Game:
     window.fill((250,250,200))
