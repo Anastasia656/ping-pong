@@ -1,6 +1,6 @@
 import pygame
-H = 250
-W = 500
+H = 500
+W = 700
 Game = True
 clock = pygame.time.Clock()
 window = pygame.display.set_mode((W,H))
